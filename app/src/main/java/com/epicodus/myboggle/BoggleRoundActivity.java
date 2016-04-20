@@ -25,5 +25,12 @@ public class BoggleRoundActivity extends AppCompatActivity {
             boggleArray.add(consonants[index]);
         }
      Log.d(TAG, "this is my letter: " + boggleArray.get(5));
+
+        for (int i=0; i<2; i++) {
+            int index = (int) (Math.random()*vowels.length);
+            boggleArray.add(vowels[index]);
+
+        }
+        Log.d(TAG, "this is my new letter: " + boggleArray.get(7));
     }
 }
