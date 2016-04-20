@@ -4,6 +4,7 @@ import android.support.v4.content.res.TypedArrayUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -14,6 +15,8 @@ public class BoggleRoundActivity extends AppCompatActivity {
     private String[] vowels = {"a", "e", "i", "o", "u"};
     private ArrayList<String> boggleArray;
     private ArrayList<String> words;
+    private TextView mTextView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +32,12 @@ public class BoggleRoundActivity extends AppCompatActivity {
         for (int i=0; i<2; i++) {
             int index = (int) (Math.random()*vowels.length);
             boggleArray.add(vowels[index]);
-
         }
+        mTextView = (TextView) findViewById(R.id.newWord);
+
+        String letters = boggleArray.toString().replace("[", "").replace("]", "").replace(",", " " +
+                "").toUpperCase();
+        mTextView.setText(letters);
         Log.d(TAG, "this is my new letter: " + boggleArray.get(7));
     }
 }
